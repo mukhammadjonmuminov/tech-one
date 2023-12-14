@@ -1,0 +1,18 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+
+{% block title %}
+    Oferta
+{% endblock %}
+
+{% block content %}
+    <h1>Oferta List</h1>
+    {%  for oferta in offers %}
+        <h3>{{ oferta.id }}. {{ oferta.title }}</h3>
+        <ul>
+            {% for content in oferta.oferta_content.all  %}
+                <li>{{ content.content }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
